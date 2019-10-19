@@ -47,7 +47,6 @@ public class PlayerController : MonoBehaviour
         {
             transform.position = new Vector2(boundary.Right, transform.position.y);
         }
-
         // check left boundary
         if (transform.position.x < boundary.Left)
         {

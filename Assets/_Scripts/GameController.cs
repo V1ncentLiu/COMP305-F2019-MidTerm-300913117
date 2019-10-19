@@ -41,11 +41,7 @@ public class GameController : MonoBehaviour
             if(_lives < 1)
             {                
                 SceneManager.LoadScene(3);
-            }
-            if (SceneManager.GetActiveScene().name == "2Level2")
-            {
-                _lives = PlayerPrefs.GetInt("Lives");
-            }
+            }            
             livesLabel.text = "Lives: " + _lives.ToString();
         }
     }
@@ -56,18 +52,13 @@ public class GameController : MonoBehaviour
         {
             return _score;
         }
-
         set
         {
             _score = value;
             if (_score > 499)
             {
                 SceneManager.LoadScene(2);                
-            }
-            if (SceneManager.GetActiveScene().name == "2Level2")
-            {
-                _score = PlayerPrefs.GetInt("Score");
-            }
+            }            
             scoreLabel.text = "Score: " + _score.ToString();
         }
     }
@@ -76,13 +67,22 @@ public class GameController : MonoBehaviour
     void Start()
     {        
         SceneConfiguration();
-       
+        if (SceneManager.GetActiveScene().name == "2Level2")
+        {
+            _lives = PlayerPrefs.GetInt("Lives");
+        }
+        if (SceneManager.GetActiveScene().name == "2Level2")
+        {
+            _score = PlayerPrefs.GetInt("Score");
+        }
     }
 
     private void SceneConfiguration()
     {
         Lives = 5;
         Score = 0;
+        PlayerPrefs.SetInt("Score", Score);
+        PlayerPrefs.SetInt("Lives", Lives);
 
         if ((activeSoundClip != SoundClip.NONE) && (activeSoundClip != SoundClip.NUM_OF_CLIPS))
         {
@@ -105,7 +105,6 @@ public class GameController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        PlayerPrefs.SetInt("Score", Score);
-        PlayerPrefs.SetInt("Lives", Lives);       
+               
     } 
 }
