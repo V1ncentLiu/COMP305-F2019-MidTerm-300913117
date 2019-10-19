@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Util;
 
-public class PlayerController : MonoBehaviour
+public class Player2Controller : MonoBehaviour
 {
     public Speed speed;
     public Boundary boundary;
@@ -24,42 +24,38 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Move();
-        CheckBounds();
+        Move2();
+        BoundaryCheck();
     }
 
-    public void Move()
+    public void Move2()
     {
-        Vector2 newPosition = transform.position;
-        if(Input.GetAxis("Horizontal") > 0.0f)
+        Vector2 newPos = transform.position;
+        if (Input.GetAxis("Vertical") > 0.0f)
         {
-            newPosition += new Vector2(speed.max, 0.0f);
+            newPos += new Vector2(0.0f, speed.max);
         }
-        if (Input.GetAxis("Horizontal") < 0.0f)
+        if (Input.GetAxis("Vertical") < 0.0f)
         {
-            newPosition += new Vector2(speed.min, 0.0f);
+            newPos += new Vector2(0.0f, speed.min);
         }
-        transform.position = newPosition;
     }
-
-    public void CheckBounds()
+    public void BoundaryCheck()
     {
-        // check right boundary
-        if(transform.position.x > boundary.Right)
+        // check Top boundary
+        if (transform.position.y > boundary.Top)
         {
-            transform.position = new Vector2(boundary.Right, transform.position.y);
+            transform.position = new Vector2(transform.position.x, boundary.Top);
         }
-
-        // check left boundary
-        if (transform.position.x < boundary.Left)
+        // check Bottom boundary
+        if (transform.position.y < boundary.Bottom)
         {
-            transform.position = new Vector2(boundary.Left, transform.position.y);
+            transform.position = new Vector2(transform.position.x, boundary.Bottom);
         }
     }
-
     void OnTriggerEnter2D(Collider2D other)
     {
-        switch(other.gameObject.tag)
+        switch (other.gameObject.tag)
         {
             case "Cloud":
                 _thunderSound.Play();

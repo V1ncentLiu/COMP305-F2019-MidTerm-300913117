@@ -1,17 +1,17 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using Util;
 
-public class IslandController : MonoBehaviour
+public class Ocean2Controller : MonoBehaviour
 {
-    public float verticalSpeed = 0.05f;
-    public Boundary boundary;
+    public float horizontalSpeed = 0.1f;
+    public float resetPosition = 8.6f;
+    public float resetPoint = -2.2f;   
 
     // Start is called before the first frame update
     void Start()
     {
-        Reset();
+        //Reset();       
     }
 
     // Update is called once per frame
@@ -26,9 +26,8 @@ public class IslandController : MonoBehaviour
     /// </summary>
     void Move()
     {
-        Vector2 newPosition = new Vector2(0.0f, verticalSpeed);
+        Vector2 newPosition = new Vector2(horizontalSpeed, 0.0f);
         Vector2 currentPosition = transform.position;
-
         currentPosition -= newPosition;
         transform.position = currentPosition;
     }
@@ -38,17 +37,16 @@ public class IslandController : MonoBehaviour
     /// </summary>
     void Reset()
     {
-        float randomXPosition = Random.Range(boundary.Left, boundary.Right);
-        transform.position = new Vector2(randomXPosition, boundary.Top);
+        transform.position = new Vector2(resetPosition, 0.0f);
     }
 
     /// <summary>
-    /// This method checks if the ocean reaches the lower boundary
+    /// This method checks if the ocean reaches the left boundary
     /// and then it Resets it
     /// </summary>
     void CheckBounds()
     {
-        if (transform.position.y <= boundary.Bottom)
+        if(transform.position.x <= resetPoint)
         {
             Reset();
         }

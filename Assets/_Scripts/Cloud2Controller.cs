@@ -3,9 +3,19 @@ using System.Collections.Generic;
 using UnityEngine;
 using Util;
 
-public class IslandController : MonoBehaviour
+public class Cloud2Controller : MonoBehaviour
 {
-    public float verticalSpeed = 0.05f;
+    [Header("Speed Values")]
+    [SerializeField]
+    public Speed horizontalSpeedRange;
+
+    [SerializeField]
+    public Speed verticalSpeedRange;
+
+    public float verticalSpeed;
+    public float horizontalSpeed;
+
+    [SerializeField]
     public Boundary boundary;
 
     // Start is called before the first frame update
@@ -26,7 +36,7 @@ public class IslandController : MonoBehaviour
     /// </summary>
     void Move()
     {
-        Vector2 newPosition = new Vector2(0.0f, verticalSpeed);
+        Vector2 newPosition = new Vector2(horizontalSpeed, verticalSpeed);
         Vector2 currentPosition = transform.position;
 
         currentPosition -= newPosition;
@@ -38,8 +48,11 @@ public class IslandController : MonoBehaviour
     /// </summary>
     void Reset()
     {
-        float randomXPosition = Random.Range(boundary.Left, boundary.Right);
-        transform.position = new Vector2(randomXPosition, boundary.Top);
+        horizontalSpeed = Random.Range(horizontalSpeedRange.min, horizontalSpeedRange.max);
+        verticalSpeed = Random.Range(verticalSpeedRange.min, verticalSpeedRange.max);
+
+        float randomYPosition = Random.Range(boundary.Bottom, boundary.Top);
+        transform.position = new Vector2(boundary.Right,randomYPosition);
     }
 
     /// <summary>
@@ -48,7 +61,7 @@ public class IslandController : MonoBehaviour
     /// </summary>
     void CheckBounds()
     {
-        if (transform.position.y <= boundary.Bottom)
+        if (transform.position.x <= boundary.Left)
         {
             Reset();
         }

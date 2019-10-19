@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
-public class GameController : MonoBehaviour
+public class Game2Controller : MonoBehaviour
 {
     [Header("Scene Game Objects")]
     public GameObject cloud;
@@ -62,8 +62,7 @@ public class GameController : MonoBehaviour
             _score = value;
             if (_score > 499)
             {
-                SceneManager.LoadScene(2);
-                _lives = 5;
+                SceneManager.LoadScene(3);
             }
             scoreLabel.text = "Score: " + _score.ToString();
         }
