@@ -935,6 +935,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   restartButton: {fileID: 8537358245937909993}
   QuitButton: {fileID: 1582125881}
+  HScore: {fileID: 8537358247010793476}
 --- !u!114 &5238004220802045604
 MonoBehaviour:
   m_ObjectHideFlags: 0

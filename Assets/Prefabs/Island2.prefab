@@ -110,9 +110,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e8fc6a3fd6a684a4fa05d9374c98d5d3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  horizontalSpeed: 0.05
+  horizontalSpeed: 0.04
   boundary:
     Top: 2.71
-    Right: 2.88
+    Right: 3.52
     Bottom: -2.71
-    Left: -2.88
+    Left: -3.52

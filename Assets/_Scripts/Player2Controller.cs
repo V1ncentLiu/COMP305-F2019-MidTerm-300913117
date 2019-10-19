@@ -1,15 +1,14 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using Util;
 
 public class Player2Controller : MonoBehaviour
 {
     public Speed speed;
     public Boundary boundary;
-
     public GameController gameController;
-
     // private instance variables
     private AudioSource _thunderSound;
     private AudioSource _yaySound;
@@ -18,7 +17,7 @@ public class Player2Controller : MonoBehaviour
     void Start()
     {
         _thunderSound = gameController.audioSources[(int)SoundClip.THUNDER];
-        _yaySound = gameController.audioSources[(int)SoundClip.YAY];
+        _yaySound = gameController.audioSources[(int)SoundClip.YAY];        
     }
 
     // Update is called once per frame
@@ -39,6 +38,7 @@ public class Player2Controller : MonoBehaviour
         {
             newPos += new Vector2(0.0f, speed.min);
         }
+        transform.position = newPos;
     }
     public void BoundaryCheck()
     {

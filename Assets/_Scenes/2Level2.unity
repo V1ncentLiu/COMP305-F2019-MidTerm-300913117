@@ -378,8 +378,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed:
-    min: 0.1
-    max: 0.1
+    min: -0.05
+    max: 0.05
   boundary:
     Top: 2.2
     Right: 0
@@ -883,6 +883,21 @@ PrefabInstance:
       propertyPath: m_Name
       value: GameController
       objectReference: {fileID: 0}
+    - target: {fileID: 6258031004218500820, guid: 0cd6714592b08874d95701663d2115fa,
+        type: 3}
+      propertyPath: livesLabel
+      value: 
+      objectReference: {fileID: 748744465}
+    - target: {fileID: 6258031004218500820, guid: 0cd6714592b08874d95701663d2115fa,
+        type: 3}
+      propertyPath: scoreLabel
+      value: 
+      objectReference: {fileID: 1647725885}
+    - target: {fileID: 6258031004218500820, guid: 0cd6714592b08874d95701663d2115fa,
+        type: 3}
+      propertyPath: numberOfClouds
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 6258031004218500823, guid: 0cd6714592b08874d95701663d2115fa,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -938,15 +953,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 6258031004218500820, guid: 0cd6714592b08874d95701663d2115fa,
+    - target: {fileID: 6258031004218500819, guid: 0cd6714592b08874d95701663d2115fa,
         type: 3}
-      propertyPath: livesLabel
-      value: 
-      objectReference: {fileID: 748744465}
-    - target: {fileID: 6258031004218500820, guid: 0cd6714592b08874d95701663d2115fa,
-        type: 3}
-      propertyPath: scoreLabel
-      value: 
-      objectReference: {fileID: 1647725885}
+      propertyPath: m_PlayOnAwake
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0cd6714592b08874d95701663d2115fa, type: 3}

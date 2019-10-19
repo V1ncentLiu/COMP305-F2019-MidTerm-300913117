@@ -7,9 +7,7 @@ public class PlayerController : MonoBehaviour
 {
     public Speed speed;
     public Boundary boundary;
-
     public GameController gameController;
-
     // private instance variables
     private AudioSource _thunderSound;
     private AudioSource _yaySound;
